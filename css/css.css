@@ -1,0 +1,53 @@
+/* Общие стили для минимализма и анимации */
+:root {
+    --primary-color: #000;
+    --secondary-color: #f3f4f6; /* light gray */
+    --accent-color: #2563eb; /* blue-600 */
+    --text-color: #1f2937; /* gray-800 */
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+/* Анимация перехода страниц */
+.page-transition {
+    /* Стили, управляемые JS (см. 'page-active') */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* Скрываем неактивные страницы */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    visibility: hidden; /* Скрываем, но сохраняем в DOM для JS */
+}
+
+.page-active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    position: relative; /* Активная страница занимает место */
+}
+
+/* Эффект мерцающего курсора для заголовка */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.typing-cursor {
+    border-right: 2px solid var(--primary-color);
+    /* 'step-end' создает эффект "машинки" */
+    animation: blink 0.7s step-end infinite;
+}
+
+/* Стиль для активной ссылки в навигации */
+.nav-link.active {
+    font-weight: 700;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}

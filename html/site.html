@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Минималистичный SPA-Сайт</title>
+    <!-- Загрузка Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Загрузка шрифта Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Ссылка на внешний CSS -->
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body class="min-h-screen">
+
+    <!-- Скрипт для конфигурации Tailwind (позволяет использовать 'primary', 'secondary' в классах) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#000000',
+                        'secondary': '#f3f4f6',
+                        'accent': '#2563eb',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Основной контейнер приложения -->
+    <div id="app" class="max-w-4xl mx-auto p-4 md:p-8">
+
+        <!-- Навигационное меню (Шапка) -->
+        <header class="mb-12 border-b border-gray-300 pb-4">
+            <nav class="flex justify-between items-center">
+                <!-- Логотип/Название сайта -->
+                <a href="#home" data-page="home" class="text-xl font-bold tracking-tight text-primary hover:text-accent transition duration-300">
+                    Минимализм
+                </a>
+                <!-- Ссылки навигации -->
+                <div class="space-x-4 flex">
+                    <a href="#home" data-page="home" class="nav-link text-gray-600 hover:text-primary transition duration-300 text-sm md:text-base">Главная</a>
+                    <a href="#about" data-page="about" class="nav-link text-gray-600 hover:text-primary transition duration-300 text-sm md:text-base">О нас</a>
+                    <a href="#services" data-page="services" class="nav-link text-gray-600 hover:text-primary transition duration-300 text-sm md:text-base">Услуги</a>
+                    <a href="#portfolio" data-page="portfolio" class="nav-link text-gray-600 hover:text-primary transition duration-300 text-sm md:text-base">Портфолио</a>
+                    <a href="#contact" data-page="contact" class="nav-link text-gray-600 hover:text-primary transition duration-300 text-sm md:text-base">Контакты</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Контейнер для динамической смены страниц -->
+        <main id="page-container" class="relative overflow-hidden min-h-[60vh]">
+            
+            <!-- 1. Главная страница -->
+            <section id="page-home" class="page-transition p-4 md:p-0">
+                <div class="flex flex-col justify-center items-center h-full text-center min-h-[50vh]">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-primary mb-4 leading-tight">
+                        Чистый. Простой. <span id="typing-text" class="typing-cursor">Дизайн</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-500 max-w-xl">
+                        Мы верим, что меньше значит больше. Элегантность в деталях и ясность в каждом элементе.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 2. Страница "О нас" -->
+            <section id="page-about" class="page-transition p-4 md:p-0">
+                <div class="py-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 border-b pb-2">О нашей студии</h2>
+                    
+                    <div class="space-y-6 text-gray-700">
+                        <p>
+                            Мы — команда энтузиастов, объединенных страстью к минимализму и функциональности. Наша миссия — создавать цифровые продукты, которые не просто красивы, но и интуитивно понятны.
+                        </p>
+                        <p>
+                            С 2018 года мы помогли десяткам клиентов упростить их онлайн-присутствие, фокусируясь на пользовательском опыте и чистой архитектуре кода. Мы работаем удаленно, что позволяет нам привлекать лучших специалистов со всего мира.
+                        </p>
+                        <p>
+                            Ключевые ценности: прозрачность, честность и внимание к мелочам.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Страница "Услуги" -->
+            <section id="page-services" class="page-transition p-4 md:p-0">
+                <div class="py-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 border-b pb-2">Наши ключевые услуги</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Карточка услуги 1 -->
+                        <div class="p-6 bg-white rounded-lg shadow-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.02] border border-gray-100">
+                            <svg class="w-8 h-8 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1v-3m-6.875-6l.848 1.48m-6.848-1.48L5.25 11l-1.48-.848m1.48.848L3.75 11m-1.48-.848L5.25 9m6.875 6l-1.48.848m1.48-.848L12 15.25m-1.48.848L9.75 17M12 3v2m0 14v2m8.485-1.879l-1.415-1.415M6.93 6.93l-1.415-1.415m12.12 12.12l-1.415-1.415M6.93 17.07l-1.415 1.415M21 12h-2M5 12H3m16.06-9.07l-1.415 1.415M7.93 7.93l-1.415 1.415"></path></svg>
+                            <h3 class="text-xl font-semibold mb-2">Веб-дизайн</h3>
+                            <p class="text-gray-600">Создаем чистые, адаптивные макеты, которые одинаково хорошо выглядят на любом устройстве.</p>
+                        </div>
+                        <!-- Карточка услуги 2 -->
+                        <div class="p-6 bg-white rounded-lg shadow-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.02] border border-gray-100">
+                            <svg class="w-8 h-8 text-accent mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            <h3 class="text-xl font-semibold mb-2">Разработка (Frontend)</h3>
+                            <p class="text-gray-600">Пишем оптимизированный и масштабируемый код на JavaScript (React, Vue, Vanilla JS).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Страница "Портфолио" -->
+            <section id="page-portfolio" class="page-transition p-4 md:p-0">
+                <div class="py-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 border-b pb-2">Избранные работы</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Проект 1 -->
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden group">
+                            <div class="w-full h-48 bg-gray-200 flex items-center justify-center relative">
+                                <span class="text-gray-500">Изображение проекта 1</span>
+                                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition duration-300"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Проект "Эхо"</h3>
+                                <p class="text-gray-600 text-sm">Минималистичный блог о путешествиях.</p>
+                            </div>
+                        </div>
+                        <!-- Проект 2 -->
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden group">
+                            <div class="w-full h-48 bg-gray-200 flex items-center justify-center relative">
+                                <span class="text-gray-500">Изображение проекта 2</span>
+                                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition duration-300"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">Проект "Точка"</h3>
+                                <p class="text-gray-600 text-sm">Мобильное приложение для медитаций.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Страница "Контакты" -->
+            <section id="page-contact" class="page-transition p-4 md:p-0">
+                <div class="py-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 border-b pb-2">Свяжитесь с нами</h2>
+                    
+                    <div class="max-w-lg">
+                        <p class="text-lg text-gray-700 mb-6">
+                            Готовы обсудить ваш проект? Напишите нам, и мы ответим в течение 24 часов.
+                        </p>
+                        <!-- Простая форма -->
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Ваш Email</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Сообщение</label>
+                                <textarea id="message" name="message" rows="5" required 
+                                          class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" 
+                                        class="w-full md:w-auto px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition duration-300 transform hover:scale-105">
+                                    Отправить
+                                </button>
+                            </div>
+                        </form>
+                        <!-- Сообщение об успехе (скрыто) -->
+                        <div id="success-message" class="hidden mt-6 p-4 bg-green-100 text-green-800 rounded-lg border border-green-200">
+                            Спасибо! Ваше сообщение отправлено.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JavaScript-логика -->
+    <script src="js/js.js"></script>
+</body>
+</html>
